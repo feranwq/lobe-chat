@@ -26,6 +26,7 @@ export enum ModelProvider {
   Azure = 'azure',
   Bedrock = 'bedrock',
   DeepSeek = 'deepseek',
+  Dify = 'dify',
   Google = 'google',
   Groq = 'groq',
   Minimax = 'minimax',

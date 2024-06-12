@@ -23,6 +23,7 @@ import { Flexbox } from 'react-layout-kit';
 import {
   AnthropicProviderCard,
   DeepSeekProviderCard,
+  DifyProviderCard,
   GoogleProviderCard,
   GroqProviderCard,
   MinimaxProviderCard,
@@ -134,6 +135,10 @@ export const useProviderList = (): ProviderItem[] => {
       {
         ...ZeroOneProviderCard,
         title: <ZeroOne.Text size={20} />,
+      },
+      {
+        ...DifyProviderCard,
+        title: 'DIFY',
       },
     ],
     [azureProvider, ollamaProvider, ollamaProvider, bedrockProvider],

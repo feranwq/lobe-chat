@@ -2,6 +2,7 @@ import {
   AnthropicProviderCard,
   BedrockProviderCard,
   DeepSeekProviderCard,
+  DifyProviderCard,
   GoogleProviderCard,
   GroqProviderCard,
   MinimaxProviderCard,
@@ -35,6 +36,10 @@ export const DEFAULT_LLM_CONFIG: UserModelProviderConfig = {
   deepseek: {
     enabled: false,
     enabledModels: filterEnabledModels(DeepSeekProviderCard),
+  },
+  dify: {
+    enabled: false,
+    enabledModels: filterEnabledModels(DifyProviderCard),
   },
   google: {
     enabled: false,

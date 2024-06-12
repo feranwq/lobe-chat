@@ -4,6 +4,7 @@ import AnthropicProvider from './anthropic';
 import AzureProvider from './azure';
 import BedrockProvider from './bedrock';
 import DeepSeekProvider from './deepseek';
+import DifyProvider from './dify';
 import GoogleProvider from './google';
 import GroqProvider from './groq';
 import MinimaxProvider from './minimax';
@@ -35,6 +36,7 @@ export const LOBE_DEFAULT_MODEL_LIST: ChatModelCard[] = [
   PerplexityProvider.chatModels,
   AnthropicProvider.chatModels,
   ZeroOneProvider.chatModels,
+  DifyProvider.chatModels,
 ].flat();
 
 export const DEFAULT_MODEL_PROVIDER_LIST = [
@@ -55,6 +57,7 @@ export const DEFAULT_MODEL_PROVIDER_LIST = [
   MoonshotProvider,
   ZeroOneProvider,
   ZhiPuProvider,
+  DifyProvider,
 ];
 
 export const filterEnabledModels = (provider: ModelProviderCard) => {
@@ -65,6 +68,7 @@ export { default as AnthropicProviderCard } from './anthropic';
 export { default as AzureProviderCard } from './azure';
 export { default as BedrockProviderCard } from './bedrock';
 export { default as DeepSeekProviderCard } from './deepseek';
+export { default as DifyProviderCard } from './dify';
 export { default as GoogleProviderCard } from './google';
 export { default as GroqProviderCard } from './groq';
 export { default as MinimaxProviderCard } from './minimax';
