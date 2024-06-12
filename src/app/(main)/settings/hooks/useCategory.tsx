@@ -1,6 +1,6 @@
 import { Icon } from '@lobehub/ui';
 import { Tag } from 'antd';
-import { Bot, Brain, Cloudy, Info, Mic2, Settings2, Sparkles } from 'lucide-react';
+import { Bot, Brain, Cloudy, Mic2, Settings2, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -77,15 +77,15 @@ export const useCategory = () => {
             </Link>
           ),
         },
-        {
-          icon: <Icon icon={Info} />,
-          key: SettingsTabs.About,
-          label: (
-            <Link href={'/settings/about'} onClick={(e) => e.preventDefault()}>
-              {t('tab.about')}
-            </Link>
-          ),
-        },
+        // {
+        //   icon: <Icon icon={Info} />,
+        //   key: SettingsTabs.About,
+        //   label: (
+        //     <Link href={'/settings/about'} onClick={(e) => e.preventDefault()}>
+        //       {t('tab.about')}
+        //     </Link>
+        //   ),
+        // },
       ].filter(Boolean) as MenuProps['items'],
     [t, enableWebrtc, showLLM],
   );

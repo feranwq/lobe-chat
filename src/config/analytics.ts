@@ -47,34 +47,34 @@ declare global {
 export const getAnalyticsConfig = () => {
   if (process.env.NEXT_PUBLIC_PLAUSIBLE_SCRIPT_BASE_URL) {
     console.warn(
-      'NEXT_PUBLIC_PLAUSIBLE_SCRIPT_BASE_URL is deprecated. Please use PLAUSIBLE_SCRIPT_BASE_URL instead. We will remove it in LobeChat 1.0',
+      'NEXT_PUBLIC_PLAUSIBLE_SCRIPT_BASE_URL is deprecated. Please use PLAUSIBLE_SCRIPT_BASE_URL instead. We will remove it in Log.AI 1.0',
     );
   }
   if (process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN) {
     console.warn(
-      'NEXT_PUBLIC_PLAUSIBLE_DOMAIN is deprecated. Please use PLAUSIBLE_DOMAIN instead. We will remove it in LobeChat 1.0',
+      'NEXT_PUBLIC_PLAUSIBLE_DOMAIN is deprecated. Please use PLAUSIBLE_DOMAIN instead. We will remove it in Log.AI 1.0',
     );
   }
 
   if (process.env.NEXT_PUBLIC_POSTHOG_KEY) {
     console.warn(
-      'NEXT_PUBLIC_POSTHOG_KEY is deprecated. Please use POSTHOG_KEY instead. We will remove it in LobeChat 1.0',
+      'NEXT_PUBLIC_POSTHOG_KEY is deprecated. Please use POSTHOG_KEY instead. We will remove it in Log.AI 1.0',
     );
   }
   if (process.env.NEXT_PUBLIC_POSTHOG_HOST) {
     console.warn(
-      'NEXT_PUBLIC_POSTHOG_HOST is deprecated. Please use POSTHOG_HOST instead. We will remove it in LobeChat 1.0',
+      'NEXT_PUBLIC_POSTHOG_HOST is deprecated. Please use POSTHOG_HOST instead. We will remove it in Log.AI 1.0',
     );
   }
 
   if (process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL) {
     console.warn(
-      'NEXT_PUBLIC_UMAMI_SCRIPT_URL is deprecated. Please use UMAMI_SCRIPT_URL instead. We will remove it in LobeChat 1.0',
+      'NEXT_PUBLIC_UMAMI_SCRIPT_URL is deprecated. Please use UMAMI_SCRIPT_URL instead. We will remove it in Log.AI 1.0',
     );
   }
   if (process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID) {
     console.warn(
-      'NEXT_PUBLIC_UMAMI_WEBSITE_ID is deprecated. Please use UMAMI_WEBSITE_ID instead. We will remove it in LobeChat 1.0',
+      'NEXT_PUBLIC_UMAMI_WEBSITE_ID is deprecated. Please use UMAMI_WEBSITE_ID instead. We will remove it in Log.AI 1.0',
     );
   }
 
