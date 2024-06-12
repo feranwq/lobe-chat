@@ -25,6 +25,7 @@ import urlJoin from 'url-join';
 import {
   AnthropicProviderCard,
   DeepSeekProviderCard,
+  DifyProviderCard,
   GoogleProviderCard,
   GroqProviderCard,
   MinimaxProviderCard,
@@ -169,6 +170,10 @@ export const useProviderList = (): ProviderItem[] => {
         ...StepfunProviderCard,
         docUrl: urlJoin(BASE_DOC_URL, 'stepfun'),
         title: <Stepfun.Combine size={20} type={'color'} />,
+      },
+      {
+        ...DifyProviderCard,
+        title: 'DIFY',
       },
     ],
     [azureProvider, ollamaProvider, ollamaProvider, bedrockProvider],

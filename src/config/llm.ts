@@ -43,6 +43,10 @@ export const getLLMConfig = () => {
       PERPLEXITY_API_KEY: z.string().optional(),
       PERPLEXITY_PROXY_URL: z.string().optional(),
 
+      ENABLED_DIFY: z.boolean(),
+      DIFY_API_KEY: z.string().optional(),
+      DIFY_PROXY_URL: z.string().optional(),
+
       ENABLED_ANTHROPIC: z.boolean(),
       ANTHROPIC_API_KEY: z.string().optional(),
       ANTHROPIC_PROXY_URL: z.string().optional(),
@@ -111,6 +115,10 @@ export const getLLMConfig = () => {
       ENABLED_PERPLEXITY: !!process.env.PERPLEXITY_API_KEY,
       PERPLEXITY_API_KEY: process.env.PERPLEXITY_API_KEY,
       PERPLEXITY_PROXY_URL: process.env.PERPLEXITY_PROXY_URL,
+
+      ENABLED_DIFY: !!process.env.DIFY_API_KEY,
+      DIFY_API_KEY: process.env.DIFY_API_KEY,
+      DIFY_PROXY_URL: process.env.DIFY_PROXY_URL,
 
       ENABLED_ANTHROPIC: !!process.env.ANTHROPIC_API_KEY,
       ANTHROPIC_API_KEY: process.env.ANTHROPIC_API_KEY,

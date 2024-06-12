@@ -97,6 +97,13 @@ const getLlmOptionsFromPayload = (provider: string, payload: JWTPayload) => {
 
       const apiKey = apiKeyManager.pick(payload?.apiKey || PERPLEXITY_API_KEY);
       const baseURL = payload?.endpoint || PERPLEXITY_PROXY_URL;
+      return { apiKey, baseURL };
+    }
+    case ModelProvider.Dify: {
+      const { DIFY_API_KEY, DIFY_PROXY_URL } = getLLMConfig();
+
+      const apiKey = apiKeyManager.pick(payload?.apiKey || DIFY_API_KEY);
+      const baseURL = payload?.endpoint || DIFY_PROXY_URL;
 
       return { apiKey, baseURL };
     }
