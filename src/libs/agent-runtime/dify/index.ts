@@ -44,6 +44,7 @@ export function parseDifyResponse(chunk: string): StreamEventData {
 
   // event: ping
 
+  console.log('parseDifyResponse', chunk);
   if (chunk.startsWith('event:')) {
     return { event: 'ping' };
   }

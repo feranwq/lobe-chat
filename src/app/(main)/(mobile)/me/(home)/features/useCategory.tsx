@@ -1,5 +1,5 @@
 import { DiscordIcon } from '@lobehub/ui';
-import { Book, CircleUserRound, Database, Download, Feather, Settings2 } from 'lucide-react';
+import { Book, CircleUserRound, Database, Feather, Settings2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 
@@ -7,7 +7,7 @@ import { CellProps } from '@/components/Cell';
 import { enableAuth } from '@/const/auth';
 import { DISCORD, DOCUMENTS, FEEDBACK } from '@/const/url';
 import { isServerMode } from '@/const/version';
-import { usePWAInstall } from '@/hooks/usePWAInstall';
+// import { usePWAInstall } from '@/hooks/usePWAInstall';
 import { useUserStore } from '@/store/user';
 import { authSelectors } from '@/store/user/slices/auth/selectors';
 
@@ -15,7 +15,7 @@ import { useCategory as useSettingsCategory } from '../../settings/features/useC
 
 export const useCategory = () => {
   const router = useRouter();
-  const { canInstall, install } = usePWAInstall();
+  // const { canInstall, install } = usePWAInstall();
   const { t } = useTranslation(['common', 'setting', 'auth']);
   const [isLogin, isLoginWithAuth, isLoginWithClerk] = useUserStore((s) => [
     authSelectors.isLogin(s),
@@ -44,17 +44,17 @@ export const useCategory = () => {
     },
   ];
 
-  const pwa: CellProps[] = [
-    {
-      icon: Download,
-      key: 'pwa',
-      label: t('installPWA'),
-      onClick: () => install(),
-    },
-    {
-      type: 'divider',
-    },
-  ];
+  // const pwa: CellProps[] = [
+  //   {
+  //     icon: Download,
+  //     key: 'pwa',
+  //     label: t('installPWA'),
+  //     onClick: () => install(),
+  //   },
+  //   {
+  //     type: 'divider',
+  //   },
+  // ];
 
   const settingsWithoutAuth = [
     ...useSettingsCategory(),
@@ -109,7 +109,7 @@ export const useCategory = () => {
     /* ↓ cloud slot ↓ */
 
     /* ↑ cloud slot ↑ */
-    ...(canInstall ? pwa : []),
+    // ...(canInstall ? pwa : []),
     ...(isLogin && !isServerMode ? data : []),
     ...helps,
   ].filter(Boolean) as CellProps[];

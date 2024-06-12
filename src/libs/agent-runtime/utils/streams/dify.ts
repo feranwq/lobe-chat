@@ -59,6 +59,7 @@ const unit8ArrayToJSONChunk = (unit8Array: Uint8Array): StreamEventData => {
 
   // event: ping
 
+  console.log('unit8ArrayToJSONChunk', chunkValue);
   return parseDifyResponse(chunkValue);
 
   // if (chunkValue.startsWith('event:')) {
