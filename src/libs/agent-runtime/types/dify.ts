@@ -88,7 +88,7 @@ interface NodeStartedEventData {
 }
 
 interface NodeFinishedEventData {
-  data: {
+  data?: {
     created_at: Date;
     elapsed_time?: number;
     error?: string;
@@ -107,7 +107,7 @@ interface NodeFinishedEventData {
     status: string;
   };
   event: 'node_finished';
-  task_id: string;
+  task_id?: string;
   workflow_run_id: string;
 }
 

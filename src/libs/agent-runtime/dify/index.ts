@@ -49,6 +49,21 @@ export function parseDifyResponse(chunk: string): StreamEventData {
     return { event: 'ping' };
   }
 
+  // 特殊处理字符串超长断开
+  if (!chunk.startsWith('data:')) {
+    return { event: 'ping' };
+  }
+
+  // 特殊处理工作流
+  if (
+    chunk.startsWith('data: {"event": "node_started"') ||
+    chunk.startsWith('data: {"event": "node_finished"') ||
+    chunk.startsWith('data: {"event": "workflow_started"') ||
+    chunk.startsWith('data: {"event": "workflow_finished"')
+  ) {
+    return { event: 'ping' };
+  }
+
   let lines = chunk.split('\n');
   let answerAll = '';
   let lastLineObj;
@@ -59,6 +74,7 @@ export function parseDifyResponse(chunk: string): StreamEventData {
     line = line.slice(5).trim();
     if (line.startsWith('{')) {
       let chunkObj = JSON.parse(line);
+
       answerAll += chunkObj.answer;
 
       lastLineObj = chunkObj;
