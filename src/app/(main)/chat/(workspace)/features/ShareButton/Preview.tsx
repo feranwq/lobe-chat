@@ -1,18 +1,17 @@
-import { Avatar, ChatHeaderTitle, Markdown } from '@lobehub/ui';
+/* eslint-disable unused-imports/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { Avatar, Markdown } from '@lobehub/ui';
 import { LobeChat } from '@lobehub/ui/brand';
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 
 import pkg from '@/../package.json';
-import ModelTag from '@/components/ModelTag';
 import ChatList from '@/features/Conversation/components/ChatList';
 import { useAgentStore } from '@/store/agent';
 import { agentSelectors } from '@/store/agent/selectors';
 import { useSessionStore } from '@/store/session';
 import { sessionMetaSelectors, sessionSelectors } from '@/store/session/selectors';
 
-import PluginTag from '../PluginTag';
 import { useStyles } from './style';
 import { FieldType } from './type';
 
@@ -30,11 +29,11 @@ const Preview = memo<FieldType & { title?: string }>(
       sessionMetaSelectors.currentAgentBackgroundColor(s),
     ]);
 
-    const { t } = useTranslation('chat');
+    // const { t } = useTranslation('chat');
     const { styles } = useStyles(withBackground);
 
-    const displayTitle = isInbox ? t('inbox.title') : title;
-    const displayDesc = isInbox ? t('inbox.desc') : description;
+    // const displayTitle = isInbox ? t('inbox.title') : title;
+    // const displayDesc = isInbox ? t('inbox.desc') : description;
 
     return (
       <div className={styles.preview}>
@@ -43,7 +42,7 @@ const Preview = memo<FieldType & { title?: string }>(
             <div className={styles.header}>
               <Flexbox align={'flex-start'} gap={12} horizontal>
                 <Avatar avatar={avatar} background={backgroundColor} size={40} title={title} />
-                <ChatHeaderTitle
+                {/* <ChatHeaderTitle
                   desc={displayDesc}
                   tag={
                     <>
@@ -52,7 +51,7 @@ const Preview = memo<FieldType & { title?: string }>(
                     </>
                   }
                   title={displayTitle}
-                />
+                /> */}
               </Flexbox>
               {withSystemRole && systemRole && (
                 <div className={styles.role}>

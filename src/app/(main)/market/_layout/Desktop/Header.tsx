@@ -5,7 +5,6 @@ import { LobeChat } from '@lobehub/ui/brand';
 import { createStyles } from 'antd-style';
 import { memo } from 'react';
 
-import ShareAgentButton from '../../features/ShareAgentButton';
 
 export const useStyles = createStyles(({ css, token }) => ({
   logo: css`
@@ -20,7 +19,7 @@ const Header = memo(() => {
   return (
     <ChatHeader
       left={<LobeChat className={styles.logo} extra={'Discover'} size={36} type={'text'} />}
-      right={<ShareAgentButton />}
+      // right={<ShareAgentButton />}
     />
   );
 });

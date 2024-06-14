@@ -8,11 +8,11 @@ import {
 } from '../types';
 import { StreamEventData } from '../types/dify';
 import { AgentRuntimeError } from '../utils/createError';
-import { debugStream } from '../utils/debugStream';
 import { StreamingResponse } from '../utils/response';
 import { DifyStream } from '../utils/streams';
 
 const DEFAULT_BASE_URL = 'https://api.dify.ai/v1';
+let conversation_id: string;
 
 // interface DifyBaseResponse {
 //   code?: string;
@@ -83,6 +83,11 @@ export function parseDifyResponse(chunk: string): StreamEventData {
     }
   }
   lastLineObj.answer = answerAll;
+
+  // 记录会话id
+  if (lastLineObj.conversation_id) {
+    conversation_id = lastLineObj.conversation_id;
+  }
   return lastLineObj;
 
   // let body = chunk;
@@ -95,7 +100,6 @@ export function parseDifyResponse(chunk: string): StreamEventData {
   // return JSON.parse(body) as DifyResponse;
 }
 
-let conversation_id: string;
 export class LobeDifyAI implements LobeRuntimeAI {
   apiKey: string;
   baseURL?: string;
@@ -128,14 +132,16 @@ export class LobeDifyAI implements LobeRuntimeAI {
         });
       }
 
-      const [prod, body2] = response.body.tee();
-      const [prod2, debug] = body2.tee();
+      const [prod] = response.body.tee();
 
-      if (process.env.DEBUG_DIFY_CHAT_COMPLETION === '1') {
-        debugStream(debug).catch(console.error);
-      }
+      // const [prod, body2] = response.body.tee();
+      // const [prod2, debug] = body2.tee();
 
-      await this.parseFirstResponse(prod2.getReader());
+      // if (process.env.DEBUG_DIFY_CHAT_COMPLETION === '1') {
+      //   debugStream(debug).catch(console.error);
+      // }
+
+      // await this.parseFirstResponse(prod2.getReader());
 
       return StreamingResponse(DifyStream(prod, options?.callback), { headers: options?.headers });
     } catch (error) {

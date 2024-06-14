@@ -6,7 +6,6 @@ import { isMobileDevice } from '@/utils/responsive';
 import Desktop from './_layout/Desktop';
 import Mobile from './_layout/Mobile';
 import SkeletonList from './features/SkeletonList';
-import SystemRole from './features/SystemRole';
 
 const TopicContent = lazy(() => import('./features/TopicListContent'));
 
@@ -17,7 +16,7 @@ const Topic = () => {
 
   return (
     <>
-      {!mobile && <SystemRole />}
+      {/* {!mobile && <SystemRole />} */}
       <Layout>
         <Suspense fallback={<SkeletonList />}>
           <TopicContent />

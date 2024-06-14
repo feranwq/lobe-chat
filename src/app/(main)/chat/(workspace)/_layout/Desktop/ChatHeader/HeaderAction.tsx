@@ -8,10 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { DESKTOP_HEADER_ICON_SIZE } from '@/const/layoutTokens';
 import { useGlobalStore } from '@/store/global';
 import { systemStatusSelectors } from '@/store/global/selectors';
-import { featureFlagsSelectors, useServerConfigStore } from '@/store/serverConfig';
 
-import SettingButton from '../../../features/SettingButton';
-import ShareButton from '../../../features/ShareButton';
 
 const HeaderAction = memo(() => {
   const { t } = useTranslation('chat');
@@ -21,18 +18,18 @@ const HeaderAction = memo(() => {
     s.toggleChatSideBar,
   ]);
 
-  const { isAgentEditable } = useServerConfigStore(featureFlagsSelectors);
+  // const { isAgentEditable } = useServerConfigStore(featureFlagsSelectors);
 
   return (
     <>
-      <ShareButton />
+      {/* <ShareButton /> */}
       <ActionIcon
         icon={showAgentSettings ? PanelRightClose : PanelRightOpen}
         onClick={() => toggleConfig()}
         size={DESKTOP_HEADER_ICON_SIZE}
         title={t('roleAndArchive')}
       />
-      {isAgentEditable && <SettingButton />}
+      {/* {isAgentEditable && <SettingButton />} */}
     </>
   );
 });

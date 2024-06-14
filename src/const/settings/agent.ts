@@ -21,7 +21,8 @@ export const DEFAULT_AGENT_CHAT_CONFIG: LobeAgentChatConfig = {
 
 export const DEFAULT_AGENT_CONFIG: LobeAgentConfig = {
   chatConfig: DEFAULT_AGENT_CHAT_CONFIG,
-  model: 'gpt-3.5-turbo',
+  // model: 'gpt-3.5-turbo',
+  model: 'dify-chat',
   params: {
     frequency_penalty: 0,
     presence_penalty: 0,
@@ -29,7 +30,8 @@ export const DEFAULT_AGENT_CONFIG: LobeAgentConfig = {
     top_p: 1,
   },
   plugins: [],
-  provider: ModelProvider.OpenAI,
+  // provider: ModelProvider.OpenAI,
+  provider: ModelProvider.Dify,
   systemRole: '',
   tts: DEFAUTT_AGENT_TTS_CONFIG,
 };

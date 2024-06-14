@@ -8,23 +8,21 @@ import { Flexbox } from 'react-layout-kit';
 import { useChatStore } from '@/store/chat';
 import { topicSelectors } from '@/store/chat/selectors';
 import { useGlobalStore } from '@/store/global';
-import { useSessionStore } from '@/store/session';
-import { sessionMetaSelectors, sessionSelectors } from '@/store/session/selectors';
 
 const ChatHeaderTitle = memo(() => {
   const { t } = useTranslation('chat');
   const toggleConfig = useGlobalStore((s) => s.toggleMobileTopic);
-  const [topicLength, topic] = useChatStore((s) => [
+  const [, /* topicLength */ topic] = useChatStore((s) => [
     topicSelectors.currentTopicLength(s),
     topicSelectors.currentActiveTopic(s),
   ]);
-  const [isInbox, title] = useSessionStore((s) => [
-    sessionSelectors.isInboxSession(s),
-    sessionMetaSelectors.currentAgentTitle(s),
-  ]);
+  // const [isInbox, title] = useSessionStore((s) => [
+  //   sessionSelectors.isInboxSession(s),
+  //   sessionMetaSelectors.currentAgentTitle(s),
+  // ]);
   const theme = useTheme();
 
-  const displayTitle = isInbox ? t('inbox.title') : title;
+  // const displayTitle = isInbox ? t('inbox.title') : title;
 
   return (
     <MobileNavBarTitle
@@ -43,10 +41,11 @@ const ChatHeaderTitle = memo(() => {
         </Flexbox>
       }
       title={
-        <div onClick={() => toggleConfig()}>
-          {displayTitle}
-          {topicLength > 1 ? `(${topicLength + 1})` : ''}
-        </div>
+        ''
+        // <div onClick={() => toggleConfig()}>
+        //   {displayTitle}
+        //   {topicLength > 1 ? `(${topicLength + 1})` : ''}
+        // </div>
       }
     />
   );

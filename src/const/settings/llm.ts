@@ -39,7 +39,8 @@ export const DEFAULT_LLM_CONFIG: UserModelProviderConfig = {
     enabledModels: filterEnabledModels(DeepSeekProviderCard),
   },
   dify: {
-    enabled: false,
+    // enabled: false,
+    enabled: true,
     enabledModels: filterEnabledModels(DifyProviderCard),
   },
   google: {
@@ -63,12 +64,14 @@ export const DEFAULT_LLM_CONFIG: UserModelProviderConfig = {
     enabledModels: filterEnabledModels(MoonshotProviderCard),
   },
   ollama: {
-    enabled: true,
+    // enabled: true,
+    enabled: false,
     enabledModels: filterEnabledModels(OllamaProviderCard),
     fetchOnClient: true,
   },
   openai: {
-    enabled: true,
+    // enabled: true,
+    enabled: false,
     enabledModels: filterEnabledModels(OpenAIProviderCard),
   },
   openrouter: {
@@ -101,6 +104,10 @@ export const DEFAULT_LLM_CONFIG: UserModelProviderConfig = {
   },
 };
 
-export const DEFAULT_MODEL = 'gpt-3.5-turbo';
+// export const DEFAULT_MODEL = 'gpt-3.5-turbo';
 
-export const DEFAULT_PROVIDER = ModelProvider.OpenAI;
+// export const DEFAULT_PROVIDER = ModelProvider.OpenAI;
+
+export const DEFAULT_MODEL = 'dify-chat';
+
+export const DEFAULT_PROVIDER = ModelProvider.Dify;

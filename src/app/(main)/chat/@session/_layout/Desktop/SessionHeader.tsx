@@ -1,20 +1,12 @@
 'use client';
 
-import { ActionIcon } from '@lobehub/ui';
+// import { ActionIcon } from '@lobehub/ui';
 // import { LobeChat } from '@lobehub/ui/brand';
 import { createStyles } from 'antd-style';
-import { MessageSquarePlus } from 'lucide-react';
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 
-import { DESKTOP_HEADER_ICON_SIZE } from '@/const/layoutTokens';
-import SyncStatusTag from '@/features/SyncStatusInspector';
-import { useActionSWR } from '@/libs/swr';
-import { featureFlagsSelectors, useServerConfigStore } from '@/store/serverConfig';
-import { useSessionStore } from '@/store/session';
 
-import SessionSearchBar from '../../features/SessionSearchBar';
 
 export const useStyles = createStyles(({ css, token }) => ({
   logo: css`
@@ -28,11 +20,11 @@ export const useStyles = createStyles(({ css, token }) => ({
 
 const Header = memo(() => {
   const { styles } = useStyles();
-  const { t } = useTranslation('chat');
-  const [createSession] = useSessionStore((s) => [s.createSession]);
-  const { enableWebrtc, showCreateSession } = useServerConfigStore(featureFlagsSelectors);
+  // const { t } = useTranslation('chat');
+  // const [createSession] = useSessionStore((s) => [s.createSession]);
+  // const { enableWebrtc, showCreateSession } = useServerConfigStore(featureFlagsSelectors);
 
-  const { mutate, isValidating } = useActionSWR('session.createSession', () => createSession());
+  // const { mutate, isValidating } = useActionSWR('session.createSession', () => createSession());
 
   return (
     <Flexbox className={styles.top} gap={16} padding={16}>
@@ -44,9 +36,9 @@ const Header = memo(() => {
           >
             Log.AI
           </span>
-          {enableWebrtc && <SyncStatusTag />}
+          {/* {enableWebrtc && <SyncStatusTag />} */}
         </Flexbox>
-        {showCreateSession && (
+        {/* {showCreateSession && (
           <ActionIcon
             icon={MessageSquarePlus}
             loading={isValidating}
@@ -55,9 +47,9 @@ const Header = memo(() => {
             style={{ flex: 'none' }}
             title={t('newAgent')}
           />
-        )}
+        )} */}
       </Flexbox>
-      <SessionSearchBar />
+      {/* <SessionSearchBar /> */}
     </Flexbox>
   );
 });

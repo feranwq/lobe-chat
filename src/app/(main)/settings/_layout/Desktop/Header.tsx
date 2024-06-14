@@ -1,11 +1,9 @@
 'use client';
 
-import { ActionIcon, ChatHeader, ChatHeaderTitle } from '@lobehub/ui';
+import { ChatHeader } from '@lobehub/ui';
 import { Drawer, type DrawerProps } from 'antd';
 import { createStyles } from 'antd-style';
-import { Menu } from 'lucide-react';
 import { ReactNode, memo, useState } from 'react';
-import { Flexbox } from 'react-layout-kit';
 
 import BrandWatermark from '@/components/BrandWatermark';
 
@@ -28,7 +26,8 @@ interface HeaderProps extends Pick<DrawerProps, 'getContainer'> {
   title: ReactNode;
 }
 
-const Header = memo<HeaderProps>(({ children, getContainer, title }) => {
+// const Header = memo<HeaderProps>(({ children, getContainer, title }) => {
+const Header = memo<HeaderProps>(({ children, getContainer }) => {
   const [open, setOpen] = useState(false);
   const { styles, theme } = useStyles();
 
@@ -36,21 +35,21 @@ const Header = memo<HeaderProps>(({ children, getContainer, title }) => {
     <>
       <ChatHeader
         className={styles.container}
-        left={
-          <ChatHeaderTitle
-            title={
-              <Flexbox align={'center'} className={styles.title} gap={4} horizontal>
-                <ActionIcon
-                  color={theme.colorText}
-                  icon={Menu}
-                  onClick={() => setOpen(true)}
-                  size={{ blockSize: 32, fontSize: 18 }}
-                />
-                {title}
-              </Flexbox>
-            }
-          />
-        }
+        // left={
+        //   <ChatHeaderTitle
+        //     title={
+        //       <Flexbox align={'center'} className={styles.title} gap={4} horizontal>
+        //         <ActionIcon
+        //           color={theme.colorText}
+        //           icon={Menu}
+        //           onClick={() => setOpen(true)}
+        //           size={{ blockSize: 32, fontSize: 18 }}
+        //         />
+        //         {title}
+        //       </Flexbox>
+        //     }
+        //   />
+        // }
       />
       <Drawer
         bodyStyle={{

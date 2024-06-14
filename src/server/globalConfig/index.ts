@@ -34,6 +34,7 @@ export const getServerGlobalConfig = () => {
     ENABLED_MISTRAL,
     ENABLED_QWEN,
     ENABLED_STEPFUN,
+    ENABLED_DIFY,
 
     ENABLED_AZURE_OPENAI,
     AZURE_MODEL_LIST,
@@ -72,6 +73,7 @@ export const getServerGlobalConfig = () => {
       },
       bedrock: { enabled: ENABLED_AWS_BEDROCK },
       deepseek: { enabled: ENABLED_DEEPSEEK },
+      dify: { enabled: ENABLED_DIFY },
       google: { enabled: ENABLED_GOOGLE },
       groq: { enabled: ENABLED_GROQ },
       minimax: { enabled: ENABLED_MINIMAX },

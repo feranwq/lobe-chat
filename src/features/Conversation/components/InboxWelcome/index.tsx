@@ -9,8 +9,6 @@ import { Center, Flexbox } from 'react-layout-kit';
 import { useGreeting } from '@/hooks/useGreeting';
 import { featureFlagsSelectors, useServerConfigStore } from '@/store/serverConfig';
 
-import AgentsSuggest from './AgentsSuggest';
-import QuestionSuggest from './QuestionSuggest';
 
 const useStyles = createStyles(({ css, responsive }) => ({
   container: css`
@@ -42,7 +40,7 @@ const useStyles = createStyles(({ css, responsive }) => ({
 const InboxWelcome = memo(() => {
   const { t } = useTranslation('welcome');
   const { styles } = useStyles();
-  const mobile = useServerConfigStore((s) => s.isMobile);
+  // const mobile = useServerConfigStore((s) => s.isMobile);
   const greeting = useGreeting();
   const { showWelcomeSuggest } = useServerConfigStore(featureFlagsSelectors);
 
@@ -56,12 +54,12 @@ const InboxWelcome = memo(() => {
         <Markdown className={styles.desc} variant={'chat'}>
           {t('guide.defaultMessage')}
         </Markdown>
-        {
-          showWelcomeSuggest && <>
-            <AgentsSuggest mobile={mobile} />
-            <QuestionSuggest mobile={mobile} />
+        {showWelcomeSuggest && (
+          <>
+            {/* <AgentsSuggest mobile={mobile} /> */}
+            {/* <QuestionSuggest mobile={mobile} /> */}
           </>
-        }
+        )}
       </Flexbox>
     </Center>
   );
