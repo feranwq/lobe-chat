@@ -64,14 +64,12 @@ export const DEFAULT_LLM_CONFIG: UserModelProviderConfig = {
     enabledModels: filterEnabledModels(MoonshotProviderCard),
   },
   ollama: {
-    // enabled: true,
-    enabled: false,
+    enabled: true,
     enabledModels: filterEnabledModels(OllamaProviderCard),
     fetchOnClient: true,
   },
   openai: {
-    // enabled: true,
-    enabled: false,
+    enabled: true,
     enabledModels: filterEnabledModels(OpenAIProviderCard),
   },
   openrouter: {
