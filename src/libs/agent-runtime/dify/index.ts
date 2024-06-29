@@ -12,7 +12,7 @@ import { StreamingResponse } from '../utils/response';
 import { DifyStream } from '../utils/streams';
 
 const DEFAULT_BASE_URL = 'https://api.dify.ai/v1';
-let conversation_id: string;
+// let conversation_id: string;
 
 // interface DifyBaseResponse {
 //   code?: string;
@@ -85,9 +85,9 @@ export function parseDifyResponse(chunk: string): StreamEventData {
   lastLineObj.answer = answerAll;
 
   // 记录会话id
-  if (lastLineObj.conversation_id) {
-    conversation_id = lastLineObj.conversation_id;
-  }
+  // if (lastLineObj.conversation_id) {
+  //   conversation_id = lastLineObj.conversation_id;
+  // }
   return lastLineObj;
 
   // let body = chunk;
@@ -170,7 +170,8 @@ export class LobeDifyAI implements LobeRuntimeAI {
     // TODO 不同类型应用传参不一样
     return {
       ...params,
-      conversation_id: conversation_id, // TODO 根据会话id切换
+      // conversation_id: conversation_id, // TODO 根据会话id切换
+      conversation_id: '', // TODO 根据会话id切换
       inputs: {},
       query: messages.at(-1)?.content,
       response_mode: 'streaming',
@@ -178,27 +179,27 @@ export class LobeDifyAI implements LobeRuntimeAI {
     };
   }
 
-  private async parseFirstResponse(reader: ReadableStreamDefaultReader<Uint8Array>) {
-    const decoder = new TextDecoder();
+  // private async parseFirstResponse(reader: ReadableStreamDefaultReader<Uint8Array>) {
+  //   const decoder = new TextDecoder();
 
-    const { value } = await reader.read();
-    const chunkValue = decoder.decode(value, { stream: true });
-    let data;
-    try {
-      data = parseDifyResponse(chunkValue) as any;
+  //   const { value } = await reader.read();
+  //   const chunkValue = decoder.decode(value, { stream: true });
+  //   let data;
+  //   try {
+  //     data = parseDifyResponse(chunkValue) as any;
 
-      // 记录会话id
-      if (data?.conversation_id) {
-        conversation_id = data.conversation_id;
-      }
-    } catch {
-      // parse error, skip it
-      return;
-    }
-    // if (data) {
-    //   throwIfErrorResponse(data);
-    // }
-  }
+  //     // 记录会话id
+  //     if (data?.conversation_id) {
+  //       conversation_id = data.conversation_id;
+  //     }
+  //   } catch {
+  //     // parse error, skip it
+  //     return;
+  //   }
+  //   // if (data) {
+  //   //   throwIfErrorResponse(data);
+  //   // }
+  // }
 }
 
 export default LobeDifyAI;
