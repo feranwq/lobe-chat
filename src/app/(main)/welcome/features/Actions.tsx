@@ -3,7 +3,7 @@
 import { Icon } from '@lobehub/ui';
 import { Button } from 'antd';
 import { SendHorizonal } from 'lucide-react';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -15,11 +15,11 @@ const Actions = memo<{ mobile?: boolean }>(({ mobile }) => {
 
   return (
     <Flexbox gap={16} horizontal={!mobile} justify={'center'} width={'100%'} wrap={'wrap'}>
-      <Link href={'/market'}>
+      {/* <Link href={'/market'}>
         <Button block={mobile} size={'large'} style={{ minWidth: 160 }} type={'default'}>
           {t('button.market')}
         </Button>
-      </Link>
+      </Link> */}
       <Button
         block={mobile}
         onClick={() => router.push('/chat')}

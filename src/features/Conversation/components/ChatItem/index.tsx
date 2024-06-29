@@ -16,7 +16,7 @@ import { ChatMessage } from '@/types/message';
 
 import ErrorMessageExtra, { useErrorContent } from '../../Error';
 import { renderMessagesExtra } from '../../Extras';
-import { renderMessages, useAvatarsClick } from '../../Messages';
+import { renderMessages } from '../../Messages';
 import ActionsBar from './ActionsBar';
 import HistoryDivider from './HistoryDivider';
 
@@ -66,7 +66,7 @@ const Item = memo<ChatListItemProps>(({ index, id }) => {
       s.modifyMessageContent,
     ]);
 
-  const onAvatarsClick = useAvatarsClick();
+  // const onAvatarsClick = useAvatarsClick();
 
   const RenderMessage = useCallback(
     ({ editableContent, data }: { data: ChatMessage; editableContent: ReactNode }) => {
@@ -124,7 +124,7 @@ const Item = memo<ChatListItemProps>(({ index, id }) => {
           loading={generating}
           message={item.content}
           messageExtra={<MessageExtra data={item} />}
-          onAvatarClick={onAvatarsClick?.(item.role)}
+          // onAvatarClick={onAvatarsClick?.(item.role)}
           onChange={(value) => updateMessageContent(item.id, value)}
           onDoubleClick={(e) => {
             if (item.id === 'default' || item.error) return;
